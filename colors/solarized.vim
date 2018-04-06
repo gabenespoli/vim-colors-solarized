@@ -609,8 +609,11 @@ else
     exe "hi! SpecialKey" .s:fmt_bold   .s:fg_base00 .s:bg_base02
     exe "hi! NonText"    .s:fmt_bold   .s:fg_base00 .s:bg_none
 endif
-exe "hi! StatusLine"     .s:fmt_none   .s:fg_base1  .s:bg_base02 .s:fmt_revbb
-exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base00 .s:bg_base02 .s:fmt_revbb
+if      (has("gui_running"))
+    exe "hi! NonText"    .s:fmt_none   .s:fg_base03 .s:bg_base03
+endif
+exe "hi! StatusLine"     .s:fmt_none   .s:fg_base02 .s:bg_base1  .s:fmt_revbb
+exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base02 .s:bg_base01 .s:fmt_revbb
 exe "hi! Visual"         .s:fmt_none   .s:fg_base01 .s:bg_base03 .s:fmt_revbb
 exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ErrorMsg"       .s:fmt_revr   .s:fg_red    .s:bg_none
@@ -618,19 +621,19 @@ exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_orange .s:bg_none
 exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
-exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base02
+exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base03
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
 if ( has("gui_running") || &t_Co > 8 )
-    exe "hi! VertSplit"  .s:fmt_none   .s:fg_base00 .s:bg_base00
+    exe "hi! VertSplit"  .s:fmt_none   .s:fg_base03 .s:bg_base03
 else
-    exe "hi! VertSplit"  .s:fmt_revbb  .s:fg_base00 .s:bg_base02
+    exe "hi! VertSplit"  .s:fmt_revbb  .s:fg_base02 .s:bg_base03
 endif
-exe "hi! Title"          .s:fmt_bold   .s:fg_orange .s:bg_none
+exe "hi! Title"          .s:fmt_bold   .s:fg_base3  .s:bg_base02
 exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02 .s:fmt_revbb
-exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_red    .s:bg_none
+exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_base03 .s:bg_orange
 exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
-exe "hi! Folded"         .s:fmt_undb   .s:fg_base0  .s:bg_base02  .s:sp_base03
-exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base02
+exe "hi! Folded"         .s:fmt_none   .s:fg_base0  .s:bg_base02  .s:sp_base03
+exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base03
 if      (g:solarized_diffmode=="high")
 exe "hi! DiffAdd"        .s:fmt_revr   .s:fg_green  .s:bg_none
 exe "hi! DiffChange"     .s:fmt_revr   .s:fg_yellow .s:bg_none
@@ -654,7 +657,7 @@ exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_base02
 exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_base02 .s:sp_blue
     endif
 endif
-exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0
+exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base03
 exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
 exe "hi! SpellCap"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
@@ -706,6 +709,18 @@ exe "hi! vimGroup"          .s:fmt_undb    .s:fg_blue   .s:bg_none
 " ---------------------------------------------------------------------
 hi! link diffAdded Statement
 hi! link diffLine Identifier
+
+" DiffChar plugin
+exe "hi! _DiffDelPos"           .s:fmt_undr .s:fg_red       .s:bg_base02
+exe "hi! _DiffAddPos"           .s:fmt_undr .s:fg_yellow    .s:bg_base02
+exe "hi! _DiffPair"             .s:fmt_undr .s:fg_yellow    .s:bg_base02
+
+" GitGutter plugin
+exe "hi! GitGutterAdd"          .s:fmt_none .s:fg_green     .s:bg_base03
+exe "hi! GitGutterChange"       .s:fmt_none .s:fg_yellow    .s:bg_base03
+exe "hi! GitGutterDelete"       .s:fmt_none .s:fg_red       .s:bg_base03
+exe "hi! GitGutterChangeDelete" .s:fmt_none .s:fg_orange    .s:bg_base03
+
 "}}}
 " git & gitcommit highlighting "{{{
 "git
@@ -919,6 +934,15 @@ exe "hi! pandocStrikeoutHeading"             .s:fg_phead .s:bg_none.s:fmt_revr
 exe "hi! pandocVerbatimInlineHeading"        .s:fg_phead .s:bg_none.s:fmt_bold
 exe "hi! pandocSuperscriptHeading"           .s:fg_phead .s:bg_none.s:fmt_bold
 exe "hi! pandocSubscriptHeading"             .s:fg_phead .s:bg_none.s:fmt_bold
+hi! link markdownHeadingDelimiter        Title
+hi! link markdownH1                      Title
+hi! link markdownH2                      Title
+hi! link markdownH3                      Title
+hi! link markdownH4                      Title
+hi! link markdownH5                      Title
+hi! link markdownH6                      Title
+hi! link pandocAtxStart                  Title
+hi! link pandocAtxHeader                 Title
 
 " Links
 " ---------------------------------------------------------------------
@@ -939,6 +963,11 @@ exe "hi! pandocCitationDelim"            .s:fg_magenta.s:bg_none   .s:fmt_none
 exe "hi! pandocCitation"                 .s:fg_magenta.s:bg_none   .s:fmt_none
 exe "hi! pandocCitationID"               .s:fg_magenta.s:bg_none   .s:fmt_undr
 exe "hi! pandocCitationRef"              .s:fg_magenta.s:bg_none   .s:fmt_none
+exe "hi! pandocReferenceLabel"           .s:fg_violet .s:bg_none   .s:fmt_bold
+exe "hi! pandocReferenceURL"             .s:fg_magenta.s:bg_none   .s:fmt_bold
+exe "hi! pandocCiteKey"                  .s:fg_base01
+exe "hi! pandocCiteLocator"              .s:fg_base01
+exe "hi! pandocCiteAnchor"               .s:fg_base01
 
 " Main Styles
 " ---------------------------------------------------------------------
@@ -968,6 +997,47 @@ exe "hi! pandocMetadata"                 .s:fg_blue   .s:bg_none   .s:fmt_none
 exe "hi! pandocMetadataKey"              .s:fg_blue   .s:bg_none   .s:fmt_none
 exe "hi! pandocMetadata"                 .s:fg_blue   .s:bg_none   .s:fmt_bold
 hi! link pandocMetadataTitle             pandocMetadata
+
+" Critic Markdown Plugin
+" ---------------------------------------------------------------------
+exe "hi! criticAdd"                      .s:fg_base03 .s:bg_green
+exe "hi! criticDel"                      .s:fg_base03 .s:bg_red
+exe "hi! criticMeta"                     .s:fg_base03 .s:bg_cyan
+exe "hi! criticHighlighter"              .s:fg_base03 .s:bg_yellow
+
+"}}}
+" Other plugins "{{{
+" ---------------------------------------------------------------------
+" Buffergator
+exe "hi! BuffergatorBufferNr"   .s:fmt_none .s:fg_base01    .s:bg_base03
+
+" MATLAB
+exe "hi! matlabCellCommentPrefix"           .s:fg_base03    .s:bg_base03
+hi! link matlabCellComment      Title
+hi! link matlabCellCommentIndented Title
+
+" NERDTree
+exe "hi! NERDTreeExecFile"                  .s:fg_magenta
+exe "hi! NERDTreeLinkDir"                   .s:fg_cyan
+exe "hi! NERDTreeLinkFile"                  .s:fg_cyan
+exe "hi! NERDTreeLinkTarget"                .s:fg_base0
+
+" Tagbar
+exe "hi! TagbarType"                        .s:fg_base01
+exe "hi! TagbarScope"                       .s:fg_base0
+
+" ALE Linter
+hi! link ALEErrorSign           ErrorMsg
+hi! link ALEWarningSign         WarningMsg
+
+" nvim-r
+hi! link routError              ErrorMsg
+
+" mail compose colors
+exe "hi! mailHeader"            .s:fg_base01
+exe "hi! mailHeaderKey"         .s:fg_blue
+exe "hi! mailHeaderEmail"       .s:fg_cyan
+exe "hi! mailSubject"           .s:fg_yellow
 
 "}}}
 " Utility autocommand "{{{
