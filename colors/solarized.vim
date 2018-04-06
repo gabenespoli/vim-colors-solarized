@@ -221,6 +221,7 @@ call s:SetOption("visibility","normal")
 call s:SetOption("diffmode","normal")
 call s:SetOption("hitrail",0)
 call s:SetOption("menu",1)
+call s:SetOption("palette","solarized")
 
 "}}}
 " Colorscheme initialization "{{{
@@ -242,23 +243,115 @@ let colors_name = "solarized"
 " neutral gray monotone palette component)
 if (has("gui_running") && g:solarized_degrade == 0)
     let s:vmode       = "gui"
-    let s:base03      = "#002b36"
-    let s:base02      = "#073642"
-    let s:base01      = "#586e75"
-    let s:base00      = "#657b83"
-    let s:base0       = "#839496"
-    let s:base1       = "#93a1a1"
-    let s:base2       = "#eee8d5"
-    let s:base3       = "#fdf6e3"
-    let s:yellow      = "#b58900"
-    let s:orange      = "#cb4b16"
-    let s:red         = "#dc322f"
-    let s:magenta     = "#d33682"
-    let s:violet      = "#6c71c4"
-    let s:blue        = "#268bd2"
-    let s:cyan        = "#2aa198"
-    "let s:green       = "#859900" "original
-    let s:green       = "#719e07" "experimental
+    " select palette for gui mode
+    if (g:solarized_palette == "prescott")
+      " a high-contrast palette designed by me
+      let s:base03        = "#191919"
+      let s:base02        = "#2b2b2b"
+      let s:base01        = "#5d5d5d"
+      let s:base00        = "#737373"
+      let s:base0         = "#9f9f9f"
+      let s:base1         = "#b6b6b6"
+      let s:base2         = "#d5d5d5"
+      let s:base3         = "#f1f1f1"
+      let s:yellow        = "#f3b31e"
+      let s:orange        = "#ea8008"
+      let s:red           = "#dd111e"
+      let s:magenta       = "#de655f"
+      let s:violet        = "#8b519f"
+      let s:blue          = "#368ef1"
+      let s:cyan          = "#2daa79"
+      let s:green         = "#6aa733"
+      let s:base03_light  = s:base3
+      let s:base02_light  = s:base2
+      let s:base01_light  = "#ababab"
+      let s:base00_light  = "#8c8c8c"
+      let s:base0_light   = "#5d5d5d"
+      let s:base1_light   = "#404040"
+      let s:base2_light   = s:base02
+      let s:base3_light   = s:base03
+      let s:yellow_light  = s:yellow
+      let s:orange_light  = s:orange
+      let s:red_light     = "#c90005"
+      let s:magenta_light = s:magenta
+      let s:violet_light  = "#73529f"
+      let s:blue_light    = "#346cf1"
+      let s:cyan_light    = "#2daa65"
+      let s:green_light   = s:green
+
+    elseif (g:solarized_palette == "gruvbox")
+      " colors chosen from: https://github.com/morhetz/gruvbox
+      let s:base03        = "#1d2021" " bg0_h 234
+      let s:base02        = "#2c2826" " bg0 235 (changed from #282828)
+      let s:base01        = "#504945" " bg2 239
+      let s:base00        = "#665c54" " bg3 241
+      let s:base0         = "#928374" " gray 245
+      let s:base1         = "#a89984" " fg4 246
+      let s:base2         = "#d5c4a1" " fg2 250
+      let s:base3         = "#ebdbb2" " fg1 223
+      let s:yellow        = "#d79921" " 172
+      let s:orange        = "#d65d0e" " 166
+      let s:red           = "#cc241d" " 124
+      let s:magenta       = "#b16286" "132
+      let s:violet        = "#8f3f71" " 96
+      " let s:violet      = "#83649b" " my adjusted version
+      let s:blue          = "#458588" " 66
+      " let s:blue        = "#54969a" " my adjusted version
+      let s:cyan          = "#689d6a" " 72
+      let s:green         = "#98971a" " 106
+      let s:base03_light  = s:base3
+      let s:base02_light  = s:base2
+      let s:base01_light  = s:base1
+      let s:base00_light  = s:base0
+      let s:base0_light   = s:base00
+      let s:base1_light   = s:base01
+      let s:base2_light   = s:base02
+      let s:base3_light   = s:base03
+      let s:yellow_light  = s:yellow
+      let s:orange_light  = s:orange
+      let s:red_light     = s:red
+      let s:magenta_light = s:magenta
+      let s:violet_light  = s:violet
+      let s:blue_light    = s:blue
+      let s:cyan_light    = s:cyan
+      let s:green_light   = s:green
+
+    else " solarized
+      let s:base03      = "#002b36"
+      let s:base02      = "#073642"
+      let s:base01      = "#586e75"
+      let s:base00      = "#657b83"
+      let s:base0       = "#839496"
+      let s:base1       = "#93a1a1"
+      let s:base2       = "#eee8d5"
+      let s:base3       = "#fdf6e3"
+      let s:yellow      = "#b58900"
+      let s:orange      = "#cb4b16"
+      let s:red         = "#dc322f"
+      let s:magenta     = "#d33682"
+      let s:violet      = "#6c71c4"
+      let s:blue        = "#268bd2"
+      let s:cyan        = "#2aa198"
+      "let s:green       = "#859900" "original
+      let s:green       = "#719e07" "experimental
+      let s:base03_light  = s:base3
+      let s:base02_light  = s:base2
+      let s:base01_light  = s:base1
+      let s:base00_light  = s:base0
+      let s:base0_light   = s:base00
+      let s:base1_light   = s:base01
+      let s:base2_light   = s:base02
+      let s:base3_light   = s:base03
+      let s:yellow_light  = s:yellow
+      let s:orange_light  = s:orange
+      let s:red_light     = s:red
+      let s:magenta_light = s:magenta
+      let s:violet_light  = s:violet
+      let s:blue_light    = s:blue
+      let s:cyan_light    = s:cyan
+      let s:green_light   = s:green
+    endif
+
 elseif (has("gui_running") && g:solarized_degrade == 1)
     " These colors are identical to the 256 color mode. They may be viewed
     " while in gui mode via "let g:solarized_degrade=1", though this is not
@@ -280,6 +373,7 @@ elseif (has("gui_running") && g:solarized_degrade == 1)
     let s:blue        = "#0087ff"
     let s:cyan        = "#00afaf"
     let s:green       = "#5f8700"
+
 elseif g:solarized_termcolors != 256 && &t_Co >= 16
     let s:vmode       = "cterm"
     let s:base03      = "8"
@@ -298,6 +392,7 @@ elseif g:solarized_termcolors != 256 && &t_Co >= 16
     let s:blue        = "4"
     let s:cyan        = "6"
     let s:green       = "2"
+
 elseif g:solarized_termcolors == 256
     let s:vmode       = "cterm"
     let s:base03      = "234"
@@ -316,6 +411,7 @@ elseif g:solarized_termcolors == 256
     let s:blue        = "33"
     let s:cyan        = "37"
     let s:green       = "64"
+
 else
     let s:vmode       = "cterm"
     let s:bright      = "* term=bold cterm=bold"
@@ -377,22 +473,42 @@ endif
 " Alternate light scheme "{{{
 " ---------------------------------------------------------------------
 if &background == "light"
-    let s:temp03      = s:base03
-    let s:temp02      = s:base02
-    let s:temp01      = s:base01
-    let s:temp00      = s:base00
-    let s:base03      = s:base3
-    let s:base02      = s:base2
-    let s:base01      = s:base1
-    let s:base00      = s:base0
-    let s:base0       = s:temp00
-    let s:base1       = s:temp01
-    let s:base2       = s:temp02
-    let s:base3       = s:temp03
+    if (has("gui_running") && g:solarized_degrade == 0)
+        let s:base03  = s:base03_light
+        let s:base02  = s:base02_light
+        let s:base01  = s:base01_light
+        let s:base00  = s:base00_light
+        let s:base0   = s:base0_light
+        let s:base1   = s:base1_light
+        let s:base2   = s:base2_light
+        let s:base3   = s:base3_light
+        let s:yellow  = s:yellow_light
+        let s:orange  = s:orange_light
+        let s:red     = s:red_light
+        let s:magenta = s:magenta_light
+        let s:violet  = s:violet_light
+        let s:blue    = s:blue_light
+        let s:cyan    = s:cyan_light
+        let s:green   = s:green_light
+    else
+        let s:temp03      = s:base03
+        let s:temp02      = s:base02
+        let s:temp01      = s:base01
+        let s:temp00      = s:base00
+        let s:base03      = s:base3
+        let s:base02      = s:base2
+        let s:base01      = s:base1
+        let s:base00      = s:base0
+        let s:base0       = s:temp00
+        let s:base1       = s:temp01
+        let s:base2       = s:temp02
+        let s:base3       = s:temp03
+    endif
     if (s:back != "NONE")
         let s:back    = s:base03
     endif
 endif
+
 "}}}
 " Optional contrast schemes "{{{
 " ---------------------------------------------------------------------
@@ -408,6 +524,7 @@ if g:solarized_contrast == "low"
     let s:back        = s:base02
     let s:ou          = ",underline"
 endif
+
 "}}}
 " Overrides dependent on user specified values and environment "{{{
 " ---------------------------------------------------------------------
