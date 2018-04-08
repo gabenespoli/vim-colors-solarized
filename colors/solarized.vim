@@ -727,54 +727,49 @@ else
     exe "hi! NonText"    .s:fmt_bold   .s:fg_base00 .s:bg_none
 endif
 if      (has("gui_running"))
-    exe "hi! NonText"    .s:fmt_none   .s:fg_base03 .s:bg_base03
+    exe "hi! NonText"    .s:fmt_none   .s:fg_back   .s:bg_back  
 endif
 exe "hi! StatusLine"     .s:fmt_none   .s:fg_base02 .s:bg_base1  .s:fmt_revbb
 exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base02 .s:bg_base01 .s:fmt_revbb
-exe "hi! Visual"         .s:fmt_none   .s:fg_base01 .s:bg_base03 .s:fmt_revbb
+exe "hi! Visual"         .s:fmt_none   .s:fg_base01 .s:bg_back   .s:fmt_revbb
 exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ErrorMsg"       .s:fmt_revr   .s:fg_red    .s:bg_none
 exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_orange .s:bg_none
 exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! ModeMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
-exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_base03
+exe "hi! LineNr"         .s:fmt_none   .s:fg_base01 .s:bg_back  
 exe "hi! Question"       .s:fmt_bold   .s:fg_cyan   .s:bg_none
 if ( has("gui_running") || &t_Co > 8 )
-    exe "hi! VertSplit"  .s:fmt_none   .s:fg_base03 .s:bg_base03
+  exe "hi! VertSplit"  .s:fmt_none   .s:fg_base03 .s:bg_back  
 else
-    exe "hi! VertSplit"  .s:fmt_revbb  .s:fg_base02 .s:bg_base03
+  exe "hi! VertSplit"  .s:fmt_revbb  .s:fg_base02 .s:bg_back  
 endif
 exe "hi! Title"          .s:fmt_bold   .s:fg_base3  .s:bg_base02
 exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02 .s:fmt_revbb
 exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_base03 .s:bg_orange
 exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
 exe "hi! Folded"         .s:fmt_none   .s:fg_base0  .s:bg_base02  .s:sp_base03
-exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base03
+exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_back  
+
 if      (g:solarized_diffmode=="high")
-exe "hi! DiffAdd"        .s:fmt_revr   .s:fg_green  .s:bg_none
-exe "hi! DiffChange"     .s:fmt_revr   .s:fg_yellow .s:bg_none
-exe "hi! DiffDelete"     .s:fmt_revr   .s:fg_red    .s:bg_none
-exe "hi! DiffText"       .s:fmt_revr   .s:fg_blue   .s:bg_none
+  exe "hi! DiffAdd"        .s:fmt_revr   .s:fg_green  .s:bg_none
+  exe "hi! DiffChange"     .s:fmt_revr   .s:fg_yellow .s:bg_none
+  exe "hi! DiffDelete"     .s:fmt_revr   .s:fg_red    .s:bg_none
+  exe "hi! DiffText"       .s:fmt_revr   .s:fg_orange .s:bg_none
 elseif  (g:solarized_diffmode=="low")
-exe "hi! DiffAdd"        .s:fmt_undr   .s:fg_green  .s:bg_none   .s:sp_green
-exe "hi! DiffChange"     .s:fmt_undr   .s:fg_yellow .s:bg_none   .s:sp_yellow
-exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_none
-exe "hi! DiffText"       .s:fmt_undr   .s:fg_blue   .s:bg_none   .s:sp_blue
+  exe "hi! DiffAdd"        .s:fmt_undr   .s:fg_green  .s:bg_none   .s:sp_green
+  exe "hi! DiffChange"     .s:fmt_undr   .s:fg_yellow .s:bg_none   .s:sp_yellow
+  exe "hi! DiffDelete"     .s:fmt_undr   .s:fg_red    .s:bg_none   .s:sp_red
+  exe "hi! DiffText"       .s:fmt_undr   .s:fg_orange .s:bg_none   .s:sp_orange
 else " normal
-    if has("gui_running")
-exe "hi! DiffAdd"        .s:fmt_bold   .s:fg_green  .s:bg_base02 .s:sp_green
-exe "hi! DiffChange"     .s:fmt_bold   .s:fg_yellow .s:bg_base02 .s:sp_yellow
-exe "hi! DiffDelete"     .s:fmt_bold   .s:fg_red    .s:bg_base02
-exe "hi! DiffText"       .s:fmt_bold   .s:fg_blue   .s:bg_base02 .s:sp_blue
-    else
-exe "hi! DiffAdd"        .s:fmt_none   .s:fg_green  .s:bg_base02 .s:sp_green
-exe "hi! DiffChange"     .s:fmt_none   .s:fg_yellow .s:bg_base02 .s:sp_yellow
-exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_base02
-exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_base02 .s:sp_blue
-    endif
+  exe "hi! DiffAdd"        .s:fmt_none   .s:fg_green  .s:bg_base02 .s:sp_green
+  exe "hi! DiffChange"     .s:fmt_none   .s:fg_yellow .s:bg_base02 .s:sp_yellow
+  exe "hi! DiffDelete"     .s:fmt_none   .s:fg_red    .s:bg_base02 .s:sp_red
+  exe "hi! DiffText"       .s:fmt_none   .s:fg_blue   .s:bg_base02 .s:sp_orange
 endif
-exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base03
+
+exe "hi! SignColumn"     .s:fmt_none   .s:fg_base0  .s:bg_back  
 exe "hi! Conceal"        .s:fmt_none   .s:fg_blue   .s:bg_none
 exe "hi! SpellBad"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_red
 exe "hi! SpellCap"       .s:fmt_curl   .s:fg_none   .s:bg_none    .s:sp_violet
@@ -833,10 +828,10 @@ exe "hi! _DiffAddPos"           .s:fmt_undr .s:fg_yellow    .s:bg_base02
 exe "hi! _DiffPair"             .s:fmt_undr .s:fg_yellow    .s:bg_base02
 
 " GitGutter plugin
-exe "hi! GitGutterAdd"          .s:fmt_none .s:fg_green     .s:bg_base03
-exe "hi! GitGutterChange"       .s:fmt_none .s:fg_yellow    .s:bg_base03
-exe "hi! GitGutterDelete"       .s:fmt_none .s:fg_red       .s:bg_base03
-exe "hi! GitGutterChangeDelete" .s:fmt_none .s:fg_orange    .s:bg_base03
+exe "hi! GitGutterAdd"          .s:fmt_none .s:fg_green     .s:bg_back  
+exe "hi! GitGutterChange"       .s:fmt_none .s:fg_yellow    .s:bg_back  
+exe "hi! GitGutterDelete"       .s:fmt_none .s:fg_red       .s:bg_back  
+exe "hi! GitGutterChangeDelete" .s:fmt_none .s:fg_orange    .s:bg_back  
 
 "}}}
 " git & gitcommit highlighting "{{{
@@ -1126,10 +1121,10 @@ exe "hi! criticHighlighter"              .s:fg_base03 .s:bg_yellow
 " Other plugins "{{{
 " ---------------------------------------------------------------------
 " Buffergator
-exe "hi! BuffergatorBufferNr"   .s:fmt_none .s:fg_base01    .s:bg_base03
+exe "hi! BuffergatorBufferNr"   .s:fmt_none .s:fg_base01    .s:bg_back  
 
 " MATLAB
-exe "hi! matlabCellCommentPrefix"           .s:fg_base03    .s:bg_base03
+exe "hi! matlabCellCommentPrefix"           .s:fg_base03    .s:bg_back  
 hi! link matlabCellComment      Title
 hi! link matlabCellCommentIndented Title
 
