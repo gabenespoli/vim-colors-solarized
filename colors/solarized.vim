@@ -975,140 +975,28 @@ exe "hi! hsNiceOperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 exe "hi! hsniceoperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 
 "}}}
-" pandoc markdown syntax highlighting "{{{
+" pandoc & markdown "{{{
 " ---------------------------------------------------------------------
+hi link pandocOperator Comment
+hi link pandocPCite Comment
+hi link pandocICite Comment
+hi link pandocCiteKey Comment
+hi link pandocCiteAnchor Comment
+hi link pandocCiteLocator Comment
 
-"PandocHiLink pandocNormalBlock
-exe "hi! pandocTitleBlock"               .s:fg_blue   .s:bg_none   .s:fmt_none
-exe "hi! pandocTitleBlockTitle"          .s:fg_blue   .s:bg_none   .s:fmt_bold
-exe "hi! pandocTitleComment"             .s:fg_blue   .s:bg_none   .s:fmt_bold
-exe "hi! pandocComment"                  .s:fg_base01 .s:bg_none   .s:fmt_ital
-exe "hi! pandocVerbatimBlock"            .s:fg_yellow .s:bg_none   .s:fmt_none
-hi! link pandocVerbatimBlockDeep         pandocVerbatimBlock
-hi! link pandocCodeBlock                 pandocVerbatimBlock
-hi! link pandocCodeBlockDelim            pandocVerbatimBlock
-exe "hi! pandocBlockQuote"               .s:fg_blue   .s:bg_none   .s:fmt_none
-exe "hi! pandocBlockQuoteLeader1"        .s:fg_blue   .s:bg_none   .s:fmt_none
-exe "hi! pandocBlockQuoteLeader2"        .s:fg_cyan   .s:bg_none   .s:fmt_none
-exe "hi! pandocBlockQuoteLeader3"        .s:fg_yellow .s:bg_none   .s:fmt_none
-exe "hi! pandocBlockQuoteLeader4"        .s:fg_red    .s:bg_none   .s:fmt_none
-exe "hi! pandocBlockQuoteLeader5"        .s:fg_base0  .s:bg_none   .s:fmt_none
-exe "hi! pandocBlockQuoteLeader6"        .s:fg_base01 .s:bg_none   .s:fmt_none
-exe "hi! pandocListMarker"               .s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! pandocListReference"            .s:fg_magenta.s:bg_none   .s:fmt_undr
+if has('gui_running')
+  exe "hi! pandocEmphasis" .s:fmt_ital
+  exe "hi! pandocStrong"   .s:fmt_bold
+endif
+hi! link pandocAtxStart Title
+hi! link markdownHeadingDelimiter Title
 
-" Definitions
-" ---------------------------------------------------------------------
-let s:fg_pdef = s:fg_violet
-exe "hi! pandocDefinitionBlock"              .s:fg_pdef  .s:bg_none  .s:fmt_none
-exe "hi! pandocDefinitionTerm"               .s:fg_pdef  .s:bg_none  .s:fmt_stnd
-exe "hi! pandocDefinitionIndctr"             .s:fg_pdef  .s:bg_none  .s:fmt_bold
-exe "hi! pandocEmphasisDefinition"           .s:fg_pdef  .s:bg_none  .s:fmt_ital
-exe "hi! pandocEmphasisNestedDefinition"     .s:fg_pdef  .s:bg_none  .s:fmt_bldi
-exe "hi! pandocStrongEmphasisDefinition"     .s:fg_pdef  .s:bg_none  .s:fmt_bold
-exe "hi! pandocStrongEmphasisNestedDefinition"   .s:fg_pdef.s:bg_none.s:fmt_bldi
-exe "hi! pandocStrongEmphasisEmphasisDefinition" .s:fg_pdef.s:bg_none.s:fmt_bldi
-exe "hi! pandocStrikeoutDefinition"          .s:fg_pdef  .s:bg_none  .s:fmt_revr
-exe "hi! pandocVerbatimInlineDefinition"     .s:fg_pdef  .s:bg_none  .s:fmt_none
-exe "hi! pandocSuperscriptDefinition"        .s:fg_pdef  .s:bg_none  .s:fmt_none
-exe "hi! pandocSubscriptDefinition"          .s:fg_pdef  .s:bg_none  .s:fmt_none
-
-" Tables
-" ---------------------------------------------------------------------
-let s:fg_ptable = s:fg_blue
-exe "hi! pandocTable"                        .s:fg_ptable.s:bg_none  .s:fmt_none
-exe "hi! pandocTableStructure"               .s:fg_ptable.s:bg_none  .s:fmt_none
-hi! link pandocTableStructureTop             pandocTableStructre
-hi! link pandocTableStructureEnd             pandocTableStructre
-exe "hi! pandocTableZebraLight"              .s:fg_ptable.s:bg_base03.s:fmt_none
-exe "hi! pandocTableZebraDark"               .s:fg_ptable.s:bg_base02.s:fmt_none
-exe "hi! pandocEmphasisTable"                .s:fg_ptable.s:bg_none  .s:fmt_ital
-exe "hi! pandocEmphasisNestedTable"          .s:fg_ptable.s:bg_none  .s:fmt_bldi
-exe "hi! pandocStrongEmphasisTable"          .s:fg_ptable.s:bg_none  .s:fmt_bold
-exe "hi! pandocStrongEmphasisNestedTable"    .s:fg_ptable.s:bg_none  .s:fmt_bldi
-exe "hi! pandocStrongEmphasisEmphasisTable"  .s:fg_ptable.s:bg_none  .s:fmt_bldi
-exe "hi! pandocStrikeoutTable"               .s:fg_ptable.s:bg_none  .s:fmt_revr
-exe "hi! pandocVerbatimInlineTable"          .s:fg_ptable.s:bg_none  .s:fmt_none
-exe "hi! pandocSuperscriptTable"             .s:fg_ptable.s:bg_none  .s:fmt_none
-exe "hi! pandocSubscriptTable"               .s:fg_ptable.s:bg_none  .s:fmt_none
-
-" Headings
-" ---------------------------------------------------------------------
-let s:fg_phead = s:fg_orange
-exe "hi! pandocHeading"                      .s:fg_phead .s:bg_none.s:fmt_bold
-exe "hi! pandocHeadingMarker"                .s:fg_yellow.s:bg_none.s:fmt_bold
-exe "hi! pandocEmphasisHeading"              .s:fg_phead .s:bg_none.s:fmt_bldi
-exe "hi! pandocEmphasisNestedHeading"        .s:fg_phead .s:bg_none.s:fmt_bldi
-exe "hi! pandocStrongEmphasisHeading"        .s:fg_phead .s:bg_none.s:fmt_bold
-exe "hi! pandocStrongEmphasisNestedHeading"  .s:fg_phead .s:bg_none.s:fmt_bldi
-exe "hi! pandocStrongEmphasisEmphasisHeading".s:fg_phead .s:bg_none.s:fmt_bldi
-exe "hi! pandocStrikeoutHeading"             .s:fg_phead .s:bg_none.s:fmt_revr
-exe "hi! pandocVerbatimInlineHeading"        .s:fg_phead .s:bg_none.s:fmt_bold
-exe "hi! pandocSuperscriptHeading"           .s:fg_phead .s:bg_none.s:fmt_bold
-exe "hi! pandocSubscriptHeading"             .s:fg_phead .s:bg_none.s:fmt_bold
-hi! link markdownHeadingDelimiter        Title
-hi! link markdownH1                      Title
-hi! link markdownH2                      Title
-hi! link markdownH3                      Title
-hi! link markdownH4                      Title
-hi! link markdownH5                      Title
-hi! link markdownH6                      Title
-hi! link pandocAtxStart                  Title
-hi! link pandocAtxHeader                 Title
-
-" Links
-" ---------------------------------------------------------------------
-exe "hi! pandocLinkDelim"                .s:fg_base01 .s:bg_none   .s:fmt_none
-exe "hi! pandocLinkLabel"                .s:fg_blue   .s:bg_none   .s:fmt_undr
-exe "hi! pandocLinkText"                 .s:fg_blue   .s:bg_none   .s:fmt_undb
-exe "hi! pandocLinkURL"                  .s:fg_base00 .s:bg_none   .s:fmt_undr
-exe "hi! pandocLinkTitle"                .s:fg_base00 .s:bg_none   .s:fmt_undi
-exe "hi! pandocLinkTitleDelim"           .s:fg_base01 .s:bg_none   .s:fmt_undi   .s:sp_base00
-exe "hi! pandocLinkDefinition"           .s:fg_cyan   .s:bg_none   .s:fmt_undr   .s:sp_base00
-exe "hi! pandocLinkDefinitionID"         .s:fg_blue   .s:bg_none   .s:fmt_bold
-exe "hi! pandocImageCaption"             .s:fg_violet .s:bg_none   .s:fmt_undb
-exe "hi! pandocFootnoteLink"             .s:fg_green  .s:bg_none   .s:fmt_undr
-exe "hi! pandocFootnoteDefLink"          .s:fg_green  .s:bg_none   .s:fmt_bold
-exe "hi! pandocFootnoteInline"           .s:fg_green  .s:bg_none   .s:fmt_undb
-exe "hi! pandocFootnote"                 .s:fg_green  .s:bg_none   .s:fmt_none
-exe "hi! pandocCitationDelim"            .s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! pandocCitation"                 .s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! pandocCitationID"               .s:fg_magenta.s:bg_none   .s:fmt_undr
-exe "hi! pandocCitationRef"              .s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! pandocReferenceLabel"           .s:fg_violet .s:bg_none   .s:fmt_bold
-exe "hi! pandocReferenceURL"             .s:fg_magenta.s:bg_none   .s:fmt_bold
-exe "hi! pandocCiteKey"                  .s:fg_base01
-exe "hi! pandocCiteLocator"              .s:fg_base01
-exe "hi! pandocCiteAnchor"               .s:fg_base01
-
-" Main Styles
-" ---------------------------------------------------------------------
-exe "hi! pandocStyleDelim"               .s:fg_base01 .s:bg_none  .s:fmt_none
 exe "hi! pandocEmphasis"                 .s:fg_base0  .s:bg_none  .s:fmt_ital
-exe "hi! pandocEmphasisNested"           .s:fg_base0  .s:bg_none  .s:fmt_bldi
+exe "hi! pandocStrong"                   .s:fg_base0  .s:bg_none  .s:fmt_bldi
 exe "hi! pandocStrongEmphasis"           .s:fg_base0  .s:bg_none  .s:fmt_bold
-exe "hi! pandocStrongEmphasisNested"     .s:fg_base0  .s:bg_none  .s:fmt_bldi
-exe "hi! pandocStrongEmphasisEmphasis"   .s:fg_base0  .s:bg_none  .s:fmt_bldi
-exe "hi! pandocStrikeout"                .s:fg_base01 .s:bg_none  .s:fmt_revr
-exe "hi! pandocVerbatimInline"           .s:fg_yellow .s:bg_none  .s:fmt_none
-exe "hi! pandocSuperscript"              .s:fg_violet .s:bg_none  .s:fmt_none
-exe "hi! pandocSubscript"                .s:fg_violet .s:bg_none  .s:fmt_none
-
-exe "hi! pandocRule"                     .s:fg_blue   .s:bg_none  .s:fmt_bold
-exe "hi! pandocRuleLine"                 .s:fg_blue   .s:bg_none  .s:fmt_bold
-exe "hi! pandocEscapePair"               .s:fg_red    .s:bg_none  .s:fmt_bold
-exe "hi! pandocCitationRef"              .s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! pandocNonBreakingSpace"         . s:fg_red   .s:bg_none  .s:fmt_revr
-hi! link pandocEscapedCharacter          pandocEscapePair
-hi! link pandocLineBreak                 pandocEscapePair
-
-" Embedded Code
-" ---------------------------------------------------------------------
-exe "hi! pandocMetadataDelim"            .s:fg_base01 .s:bg_none   .s:fmt_none
-exe "hi! pandocMetadata"                 .s:fg_blue   .s:bg_none   .s:fmt_none
-exe "hi! pandocMetadataKey"              .s:fg_blue   .s:bg_none   .s:fmt_none
-exe "hi! pandocMetadata"                 .s:fg_blue   .s:bg_none   .s:fmt_bold
-hi! link pandocMetadataTitle             pandocMetadata
+exe "hi! pandocEmphasisInStrong"         .s:fg_base0  .s:bg_none  .s:fmt_bldi
+hi link markdownItalic pandocEmphasis
+hi link markdownBold pandocStrong
 
 " Critic Markdown Plugin
 " ---------------------------------------------------------------------
