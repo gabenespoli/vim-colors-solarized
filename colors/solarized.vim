@@ -655,6 +655,7 @@ exe "hi! Identifier"      .s:fmt_none   .s:fg_blue    .s:bg_none
 "       *Identifier       any variable name
 "        Function         function name (also: methods for classes)
 "
+
 exe "hi! Statement"       .s:fmt_none   .s:fg_green   .s:bg_none
 "       *Statement        any statement
 "        Conditional      if, then, else, endif, switch, etc.
@@ -760,196 +761,16 @@ hi! link TermCursorNC Cursor
 hi! link EndOfBuffer NonText
 
 "}}}
-" vim syntax highlighting "{{{
-" ---------------------------------------------------------------------
-"exe "hi! vimLineComment" . s:fg_base01 .s:bg_none   .s:fmt_ital
-"hi! link vimComment Comment
-"hi! link vimLineComment Comment
-" hi! link vimVar Identifier
-" hi! link vimFunc Function
-" hi! link vimUserFunc Function
-" hi! link helpSpecial Special
-" hi! link vimSet Normal
-" hi! link vimSetEqual Normal
-" exe "hi! vimCommentString"  .s:fmt_none    .s:fg_violet .s:bg_none
-" exe "hi! vimCommand"        .s:fmt_none    .s:fg_yellow .s:bg_none
-" exe "hi! vimCmdSep"         .s:fmt_bold    .s:fg_blue   .s:bg_none
-" exe "hi! helpExample"       .s:fmt_none    .s:fg_base1  .s:bg_none
-" exe "hi! helpOption"        .s:fmt_none    .s:fg_cyan   .s:bg_none
-" exe "hi! helpNote"          .s:fmt_none    .s:fg_magenta.s:bg_none
-" exe "hi! helpVim"           .s:fmt_none    .s:fg_magenta.s:bg_none
-" exe "hi! helpHyperTextJump" .s:fmt_undr    .s:fg_blue   .s:bg_none
-" exe "hi! helpHyperTextEntry".s:fmt_none    .s:fg_green  .s:bg_none
-" exe "hi! vimIsCommand"      .s:fmt_none    .s:fg_base00 .s:bg_none
-" exe "hi! vimSynMtchOpt"     .s:fmt_none    .s:fg_yellow .s:bg_none
-" exe "hi! vimSynType"        .s:fmt_none    .s:fg_cyan   .s:bg_none
-" exe "hi! vimHiLink"         .s:fmt_none    .s:fg_blue   .s:bg_none
-" exe "hi! vimHiGroup"        .s:fmt_none    .s:fg_blue   .s:bg_none
-" exe "hi! vimGroup"          .s:fmt_undb    .s:fg_blue   .s:bg_none
-
-"}}}
 " diff highlighting (DiffChar, GitGutter) "{{{
 " ---------------------------------------------------------------------
 exe "hi! DiffAdded"             .s:fmt_none   .s:fg_green   .s:bg_back  
 hi! link _DiffDelPos            DiffDelete
 hi! link _DiffAddPos            DiffAdd
 hi! link _DiffPair              DiffText
-" exe "hi! _DiffDelPos"           .s:fmt_undr   .s:fg_red     .s:bg_base02
-" exe "hi! _DiffAddPos"           .s:fmt_undr   .s:fg_yellow  .s:bg_base02
-" exe "hi! _DiffPair"             .s:fmt_undr   .s:fg_yellow  .s:bg_base02
 exe "hi! GitGutterAdd"          .s:fmt_none   .s:fg_green   .s:bg_back  
 exe "hi! GitGutterChange"       .s:fmt_none   .s:fg_yellow  .s:bg_back  
 exe "hi! GitGutterDelete"       .s:fmt_none   .s:fg_red     .s:bg_back  
 exe "hi! GitGutterChangeDelete" .s:fmt_none   .s:fg_orange  .s:bg_back  
-" hi! link GitGutterAdd             DiffAdd
-" hi! link GitGutterDelete          DiffDelete
-" hi! link GitGutterChange          DiffChange
-" hi! link GitGutterChangeDelete    DiffDelete
-
-"}}}
-" git & gitcommit highlighting "{{{
-"git
-"exe "hi! gitDateHeader"
-"exe "hi! gitIdentityHeader"
-"exe "hi! gitIdentityKeyword"
-"exe "hi! gitNotesHeader"
-"exe "hi! gitReflogHeader"
-"exe "hi! gitKeyword"
-"exe "hi! gitIdentity"
-"exe "hi! gitEmailDelimiter"
-"exe "hi! gitEmail"
-"exe "hi! gitDate"
-"exe "hi! gitMode"
-"exe "hi! gitHashAbbrev"
-"exe "hi! gitHash"
-"exe "hi! gitReflogMiddle"
-"exe "hi! gitReference"
-"exe "hi! gitStage"
-"exe "hi! gitType"
-"exe "hi! gitDiffAdded"
-"exe "hi! gitDiffRemoved"
-"gitcommit
-"exe "hi! gitcommitSummary"      
-"exe "hi! gitcommitComment"      .s:fmt_ital     .s:fg_base01    .s:bg_none
-"hi! link gitcommitUntracked gitcommitComment
-"hi! link gitcommitDiscarded gitcommitComment
-"hi! link gitcommitSelected  gitcommitComment
-"exe "hi! gitcommitUnmerged"     .s:fmt_bold     .s:fg_green     .s:bg_none
-"exe "hi! gitcommitOnBranch"     .s:fmt_bold     .s:fg_base01    .s:bg_none
-"exe "hi! gitcommitBranch"       .s:fmt_bold     .s:fg_magenta   .s:bg_none
-"hi! link gitcommitNoBranch gitcommitBranch
-"exe "hi! gitcommitDiscardedType".s:fmt_none     .s:fg_red       .s:bg_none
-"exe "hi! gitcommitSelectedType" .s:fmt_none     .s:fg_green     .s:bg_none
-""exe "hi! gitcommitUnmergedType"
-""exe "hi! gitcommitType"
-""exe "hi! gitcommitNoChanges"
-""exe "hi! gitcommitHeader"
-"exe "hi! gitcommitHeader"       .s:fmt_none     .s:fg_base01    .s:bg_none
-"exe "hi! gitcommitUntrackedFile".s:fmt_bold     .s:fg_cyan      .s:bg_none
-"exe "hi! gitcommitDiscardedFile".s:fmt_bold     .s:fg_red       .s:bg_none
-"exe "hi! gitcommitSelectedFile" .s:fmt_bold     .s:fg_green     .s:bg_none
-"exe "hi! gitcommitUnmergedFile" .s:fmt_bold     .s:fg_yellow    .s:bg_none
-"exe "hi! gitcommitFile"         .s:fmt_bold     .s:fg_base0     .s:bg_none
-"hi! link gitcommitDiscardedArrow gitcommitDiscardedFile
-"hi! link gitcommitSelectedArrow  gitcommitSelectedFile
-"hi! link gitcommitUnmergedArrow  gitcommitUnmergedFile
-""exe "hi! gitcommitArrow"
-""exe "hi! gitcommitOverflow"
-""exe "hi! gitcommitBlank"
-
-" }}}
-" html highlighting "{{{
-" ---------------------------------------------------------------------
-" exe "hi! htmlTag"           .s:fmt_none .s:fg_base01 .s:bg_none
-" exe "hi! htmlEndTag"        .s:fmt_none .s:fg_base01 .s:bg_none
-" exe "hi! htmlTagN"          .s:fmt_bold .s:fg_base1  .s:bg_none
-" exe "hi! htmlTagName"       .s:fmt_bold .s:fg_blue   .s:bg_none
-" exe "hi! htmlSpecialTagName".s:fmt_ital .s:fg_blue   .s:bg_none
-" exe "hi! htmlArg"           .s:fmt_none .s:fg_base00 .s:bg_none
-" exe "hi! javaScript"        .s:fmt_none .s:fg_yellow .s:bg_none
-
-"}}}
-" perl highlighting "{{{
-" ---------------------------------------------------------------------
-" exe "hi! perlHereDoc"    . s:fg_base1  .s:bg_back   .s:fmt_none
-" exe "hi! perlVarPlain"   . s:fg_yellow .s:bg_back   .s:fmt_none
-" exe "hi! perlStatementFileDesc". s:fg_cyan.s:bg_back.s:fmt_none
-
-"}}}
-" tex highlighting "{{{
-" ---------------------------------------------------------------------
-" exe "hi! texStatement"   . s:fg_cyan   .s:bg_back   .s:fmt_none
-" exe "hi! texMathZoneX"   . s:fg_yellow .s:bg_back   .s:fmt_none
-" exe "hi! texMathMatcher" . s:fg_yellow .s:bg_back   .s:fmt_none
-" exe "hi! texMathMatcher" . s:fg_yellow .s:bg_back   .s:fmt_none
-" exe "hi! texRefLabel"    . s:fg_yellow .s:bg_back   .s:fmt_none
-
-"}}}
-" ruby highlighting "{{{
-" ---------------------------------------------------------------------
-" exe "hi! rubyDefine"     . s:fg_base1  .s:bg_back   .s:fmt_bold
-"rubyInclude
-"rubySharpBang
-"rubyAccess
-"rubyPredefinedVariable
-"rubyBoolean
-"rubyClassVariable
-"rubyBeginEnd
-"rubyRepeatModifier
-"hi! link rubyArrayDelimiter    Special  " [ , , ]
-"rubyCurlyBlock  { , , }
-
-"hi! link rubyClass             Keyword
-"hi! link rubyModule            Keyword
-"hi! link rubyKeyword           Keyword
-"hi! link rubyOperator          Operator
-"hi! link rubyIdentifier        Identifier
-"hi! link rubyInstanceVariable  Identifier
-"hi! link rubyGlobalVariable    Identifier
-"hi! link rubyClassVariable     Identifier
-"hi! link rubyConstant          Type
-
-"}}}
-" haskell syntax highlighting"{{{
-" ---------------------------------------------------------------------
-" For use with syntax/haskell.vim : Haskell Syntax File
-" http://www.vim.org/scripts/script.php?script_id=3034
-" See also Steffen Siering's github repository:
-" http://github.com/urso/dotrc/blob/master/vim/syntax/haskell.vim
-" ---------------------------------------------------------------------
-"
-" Treat True and False specially, see the plugin referenced above
-" let hs_highlight_boolean=1
-" highlight delims, see the plugin referenced above
-" let hs_highlight_delimiters=1
-
-" exe "hi! cPreCondit". s:fg_orange.s:bg_none   .s:fmt_none
-
-" exe "hi! VarId"    . s:fg_blue   .s:bg_none   .s:fmt_none
-" exe "hi! ConId"    . s:fg_yellow .s:bg_none   .s:fmt_none
-" exe "hi! hsImport" . s:fg_magenta.s:bg_none   .s:fmt_none
-" exe "hi! hsString" . s:fg_base00 .s:bg_none   .s:fmt_none
-
-" exe "hi! hsStructure"        . s:fg_cyan   .s:bg_none   .s:fmt_none
-" exe "hi! hs_hlFunctionName"  . s:fg_blue   .s:bg_none
-" exe "hi! hsStatement"        . s:fg_cyan   .s:bg_none   .s:fmt_none
-" exe "hi! hsImportLabel"      . s:fg_cyan   .s:bg_none   .s:fmt_none
-" exe "hi! hs_OpFunctionName"  . s:fg_yellow .s:bg_none   .s:fmt_none
-" exe "hi! hs_DeclareFunction" . s:fg_orange .s:bg_none   .s:fmt_none
-" exe "hi! hsVarSym"           . s:fg_cyan   .s:bg_none   .s:fmt_none
-" exe "hi! hsType"             . s:fg_yellow .s:bg_none   .s:fmt_none
-" exe "hi! hsTypedef"          . s:fg_cyan   .s:bg_none   .s:fmt_none
-" exe "hi! hsModuleName"       . s:fg_green  .s:bg_none   .s:fmt_undr
-" exe "hi! hsModuleStartLabel" . s:fg_magenta.s:bg_none   .s:fmt_none
-" hi! link hsImportParams      Delimiter
-" hi! link hsDelimTypeExport   Delimiter
-" hi! link hsModuleStartLabel  hsStructure
-" hi! link hsModuleWhereLabel  hsModuleStartLabel
-
-" following is for the haskell-conceal plugin
-" the first two items don't have an impact, but better safe
-" exe "hi! hsNiceOperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
-" exe "hi! hsniceoperator"     . s:fg_cyan   .s:bg_none   .s:fmt_none
 
 "}}}
 " pandoc & markdown "{{{
@@ -1005,9 +826,8 @@ endif
 
 " MATLAB
 " exe "hi! matlabCellCommentPrefix"           .s:fg_base03    .s:bg_back  
-hi! link matlabCellComment      Title
+hi! link matlabCellComment         Title
 hi! link matlabCellCommentIndented Title
-" hi! link matlabFunction Title
 hi! link matlabDelimiter Delimiter
 
 " NERDTree
@@ -1052,6 +872,7 @@ hi! link ALEWarningSign         WarningMsg
 " other potential terminal customizations that might make gui mode suboptimal.
 "
 autocmd GUIEnter * if (s:vmode != "gui") | exe "colorscheme " . g:colors_name | endif
+
 "}}}
 " Highlight Trailing Space {{{
 " Experimental: Different highlight when on cursorline
@@ -1070,6 +891,7 @@ augroup SolarizedHiTrail
         autocmd! ColorScheme * if g:colors_name == "solarized" | call s:SolarizedHiTrail() | else | augroup! s:SolarizedHiTrail | endif
     endif
 augroup END
+
 " }}}
 " Menus "{{{
 " ---------------------------------------------------------------------
