@@ -709,8 +709,8 @@ exe "hi! Cursor"                .s:fmt_none   .s:fg_base03  .s:bg_base0
 exe "hi! CursorColumn"          .s:fmt_none   .s:fg_none    .s:bg_base02
 exe "hi! CursorLine"            .s:fmt_uopt   .s:fg_none    .s:bg_base02  .s:sp_base1
 exe "hi! Directory"             .s:fmt_none   .s:fg_blue    .s:bg_none
-exe "hi! ErrorMsg"              .s:fmt_revr   .s:fg_red     .s:bg_none
-exe "hi! WarningMsg"            .s:fmt_bold   .s:fg_base03  .s:bg_orange
+exe "hi! ErrorMsg"              .s:fmt_revr   .s:fg_red     .s:bg_base03
+exe "hi! WarningMsg"            .s:fmt_revr   .s:fg_orange  .s:bg_base03
 exe "hi! VertSplit"             .s:fmt_none   .s:fg_base03  .s:bg_base03
 exe "hi! Folded"                .s:fmt_none   .s:fg_base0   .s:bg_base02  .s:sp_base03
 exe "hi! FoldColumn"            .s:fmt_none   .s:fg_base0   .s:bg_back  
