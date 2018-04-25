@@ -665,7 +665,7 @@ exe "hi! Statement"       .s:fmt_none   .s:fg_green   .s:bg_none
 "        Keyword          any other keyword
 "        Exception        try, catch, throw
 
-exe "hi! PreProc"         .s:fmt_none   .s:fg_orange  .s:bg_none
+exe "hi! PreProc"         .s:fmt_none   .s:fg_violet  .s:bg_none
 "       *PreProc          generic Preprocessor
 "        Include          preprocessor #include
 "        Define           preprocessor #define
@@ -678,7 +678,7 @@ exe "hi! Type"            .s:fmt_none   .s:fg_yellow  .s:bg_none
 "        Structure        struct, union, enum, etc.
 "        Typedef          A typedef
 
-exe "hi! Special"         .s:fmt_none   .s:fg_red     .s:bg_none
+exe "hi! Special"         .s:fmt_none   .s:fg_orange  .s:bg_none
 "       *Special          any special symbol
 "        SpecialChar      special character in a constant
 "        Tag              you can use CTRL-] on this
@@ -686,7 +686,7 @@ exe "hi! Special"         .s:fmt_none   .s:fg_red     .s:bg_none
 "        SpecialComment   special things inside a comment
 "        Debug            debugging statements
 
-exe "hi! Underlined"      .s:fmt_none   .s:fg_violet  .s:bg_none
+exe "hi! Underlined"      .s:fmt_none   .s:fg_magenta .s:bg_none
 "       *Underlined       text that stands out, HTML links
 
 exe "hi! Ignore"          .s:fmt_none   .s:fg_none    .s:bg_none
@@ -695,7 +695,7 @@ exe "hi! Ignore"          .s:fmt_none   .s:fg_none    .s:bg_none
 exe "hi! Error"           .s:fmt_none   .s:fg_red     .s:bg_none
 "       *Error            any erroneous construct
 
-exe "hi! Todo"            .s:fmt_ital   .s:fg_violet  .s:bg_base02
+exe "hi! Todo"            .s:fmt_ital   .s:fg_magenta .s:bg_base02
 "       *Todo             anything that needs extra attention; mostly the
 "                         keywords TODO FIXME and XXX
 
