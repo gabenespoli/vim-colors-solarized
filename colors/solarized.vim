@@ -976,14 +976,17 @@ hi link markdownBold              pandocStrong
 
 " Critic Markdown Plugin
 " ---------------------------------------------------------------------
-" exe "hi! criticAdd"         .s:fg_green  .s:bg_back   .s:fmt_revr
-" exe "hi! criticDel"         .s:fg_red    .s:bg_back   .s:fmt_revr
-" exe "hi! criticMeta"        .s:fg_cyan   .s:bg_back   .s:fmt_revr
-" exe "hi! criticHighlighter" .s:fg_yellow .s:bg_back   .s:fmt_revr
-exe "hi! criticAdd"         .s:fg_green  .s:bg_base02 .s:fmt_ital
-exe "hi! criticDel"         .s:fg_red    .s:bg_base02 .s:fmt_ital
-exe "hi! criticMeta"        .s:fg_cyan   .s:bg_base02 .s:fmt_ital
-exe "hi! criticHighlighter" .s:fg_yellow .s:bg_base02 .s:fmt_ital
+if exists("g:Sumach_CriticHC") && g:Sumach_CriticHC > 0
+  exe "hi! criticAdd"         .s:fg_green  .s:bg_base03 .s:fmt_revr
+  exe "hi! criticDel"         .s:fg_red    .s:bg_base03 .s:fmt_revr
+  exe "hi! criticMeta"        .s:fg_cyan   .s:bg_base03 .s:fmt_revr
+  exe "hi! criticHighlighter" .s:fg_yellow .s:bg_base03 .s:fmt_revr
+else
+  exe "hi! criticAdd"         .s:fg_green  .s:bg_base02 .s:fmt_ital
+  exe "hi! criticDel"         .s:fg_red    .s:bg_base02 .s:fmt_ital
+  exe "hi! criticMeta"        .s:fg_cyan   .s:bg_base02 .s:fmt_ital
+  exe "hi! criticHighlighter" .s:fg_yellow .s:bg_base02 .s:fmt_ital
+endif
 
 "}}}
 " Other plugins "{{{
