@@ -774,16 +774,6 @@ exe "hi! GitGutterChangeDelete" .s:fmt_none   .s:fg_orange  .s:bg_back
 "}}}
 " pandoc & markdown "{{{
 " ---------------------------------------------------------------------
-" TODO copy pandoc citekey syntax from vim-pandoc-syntax
-hi link pandocOperator Comment
-hi link pandocReferenceLabel Normal
-
-exe "hi! pandocCiteKey"           .s:fmt_ital   .s:fg_blue    .s:bg_none
-hi link pandocCiteAnchor          pandocCiteKey
-hi link pandocCiteLocator         pandocCiteKey
-hi link pandocPCite               Identifier
-hi link pandocICite               Identifier
-
 hi! link pandocAtxStart           Title
 hi! link markdownHeadingDelimiter Title
 
@@ -793,6 +783,15 @@ exe "hi! pandocStrongEmphasis"    .s:fg_base1  .s:bg_none  .s:fmt_bldi
 exe "hi! pandocEmphasisInStrong"  .s:fg_base1  .s:bg_none  .s:fmt_bldi
 hi link markdownItalic            pandocEmphasis
 hi link markdownBold              pandocStrong
+
+exe "hi! pandocOperator"          .s:fmt_none   .s:fg_blue    .s:bg_none
+exe "hi! pandocCiteKey"           .s:fmt_ital   .s:fg_blue    .s:bg_none
+hi link pandocCiteAnchor          pandocCiteKey
+hi link pandocCiteLocator         pandocCiteKey
+hi link pandocPCite               Identifier
+hi link pandocICite               Identifier
+
+hi link pandocReferenceLabel      Normal
 
 " Critic Markdown Plugin
 " ---------------------------------------------------------------------
