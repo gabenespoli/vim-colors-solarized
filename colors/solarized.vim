@@ -733,7 +733,7 @@ exe "hi! StatusLine"     .s:fmt_none   .s:fg_base02 .s:bg_base1  .s:fmt_revbb
 exe "hi! StatusLineNC"   .s:fmt_none   .s:fg_base02 .s:bg_base01 .s:fmt_revbb
 exe "hi! Visual"         .s:fmt_none   .s:fg_base01 .s:bg_base03 .s:fmt_revbb
 exe "hi! Directory"      .s:fmt_none   .s:fg_blue   .s:bg_none
-exe "hi! ErrorMsg"       .s:fmt_revr   .s:fg_red    .s:bg_none
+exe "hi! ErrorMsg"       .s:fmt_revr   .s:fg_red    .s:bg_base2
 exe "hi! IncSearch"      .s:fmt_stnd   .s:fg_orange .s:bg_none
 exe "hi! Search"         .s:fmt_revr   .s:fg_yellow .s:bg_none
 exe "hi! MoreMsg"        .s:fmt_none   .s:fg_blue   .s:bg_none
@@ -747,7 +747,7 @@ else
 endif
 exe "hi! Title"          .s:fmt_bold   .s:fg_base3  .s:bg_base02
 exe "hi! VisualNOS"      .s:fmt_stnd   .s:fg_none   .s:bg_base02 .s:fmt_revbb
-exe "hi! WarningMsg"     .s:fmt_bold   .s:fg_base03 .s:bg_orange
+exe "hi! WarningMsg"     .s:fmt_revr   .s:fg_orange .s:bg_base2
 exe "hi! WildMenu"       .s:fmt_none   .s:fg_base2  .s:bg_base02 .s:fmt_revbb
 exe "hi! Folded"         .s:fmt_none   .s:fg_base0  .s:bg_base02  .s:sp_base03
 exe "hi! FoldColumn"     .s:fmt_none   .s:fg_base0  .s:bg_base03
