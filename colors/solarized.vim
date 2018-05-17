@@ -1039,27 +1039,25 @@ exe "hi! pandocSubscriptTable"               .s:fg_ptable.s:bg_none  .s:fmt_none
 
 " Headings
 " ---------------------------------------------------------------------
-let s:fg_phead = s:fg_orange
-exe "hi! pandocHeading"                      .s:fg_phead .s:bg_none.s:fmt_bold
-exe "hi! pandocHeadingMarker"                .s:fg_yellow.s:bg_none.s:fmt_bold
-exe "hi! pandocEmphasisHeading"              .s:fg_phead .s:bg_none.s:fmt_bldi
-exe "hi! pandocEmphasisNestedHeading"        .s:fg_phead .s:bg_none.s:fmt_bldi
-exe "hi! pandocStrongEmphasisHeading"        .s:fg_phead .s:bg_none.s:fmt_bold
-exe "hi! pandocStrongEmphasisNestedHeading"  .s:fg_phead .s:bg_none.s:fmt_bldi
-exe "hi! pandocStrongEmphasisEmphasisHeading".s:fg_phead .s:bg_none.s:fmt_bldi
-exe "hi! pandocStrikeoutHeading"             .s:fg_phead .s:bg_none.s:fmt_revr
-exe "hi! pandocVerbatimInlineHeading"        .s:fg_phead .s:bg_none.s:fmt_bold
-exe "hi! pandocSuperscriptHeading"           .s:fg_phead .s:bg_none.s:fmt_bold
-exe "hi! pandocSubscriptHeading"             .s:fg_phead .s:bg_none.s:fmt_bold
-hi! link markdownHeadingDelimiter        Title
-hi! link markdownH1                      Title
-hi! link markdownH2                      Title
-hi! link markdownH3                      Title
-hi! link markdownH4                      Title
-hi! link markdownH5                      Title
-hi! link markdownH6                      Title
-hi! link pandocAtxStart                  Title
-hi! link pandocAtxHeader                 Title
+" hi! link pandocHeading                       Title
+hi! link pandocAtxStart                      Title
+hi! link pandocHeadingMarker                 Title
+hi! link pandocEmphasisHeading               Title
+hi! link pandocEmphasisNestedHeading         Title
+hi! link pandocStrongEmphasisHeading         Title
+hi! link pandocStrongEmphasisNestedHeading   Title
+hi! link pandocStrongEmphasisEmphasisHeading Title
+hi! link pandocStrikeoutHeading              Title
+hi! link pandocVerbatimInlineHeading         Title
+hi! link pandocSuperscriptHeading            Title
+hi! link pandocSubscriptHeading              Title
+hi! link markdownHeadingDelimiter            Title
+hi! link markdownH1                          Title
+hi! link markdownH2                          Title
+hi! link markdownH3                          Title
+hi! link markdownH4                          Title
+hi! link markdownH5                          Title
+hi! link markdownH6                          Title
 
 " Links
 " ---------------------------------------------------------------------
@@ -1076,15 +1074,15 @@ exe "hi! pandocFootnoteLink"             .s:fg_green  .s:bg_none   .s:fmt_undr
 exe "hi! pandocFootnoteDefLink"          .s:fg_green  .s:bg_none   .s:fmt_bold
 exe "hi! pandocFootnoteInline"           .s:fg_green  .s:bg_none   .s:fmt_undb
 exe "hi! pandocFootnote"                 .s:fg_green  .s:bg_none   .s:fmt_none
-exe "hi! pandocCitationDelim"            .s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! pandocCitation"                 .s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! pandocCitationID"               .s:fg_magenta.s:bg_none   .s:fmt_undr
-exe "hi! pandocCitationRef"              .s:fg_magenta.s:bg_none   .s:fmt_none
-exe "hi! pandocReferenceLabel"           .s:fg_violet .s:bg_none   .s:fmt_bold
-exe "hi! pandocReferenceURL"             .s:fg_magenta.s:bg_none   .s:fmt_bold
-exe "hi! pandocCiteKey"                  .s:fg_base01
-exe "hi! pandocCiteLocator"              .s:fg_base01
-exe "hi! pandocCiteAnchor"               .s:fg_base01
+exe "hi! pandocCitationDelim"            .s:fg_base01 .s:bg_none   .s:fmt_none
+exe "hi! pandocCitation"                 .s:fg_base01 .s:bg_none   .s:fmt_none
+exe "hi! pandocCitationID"               .s:fg_base01 .s:bg_none   .s:fmt_undr
+exe "hi! pandocCitationRef"              .s:fg_base01 .s:bg_none   .s:fmt_none
+" exe "hi! pandocReferenceLabel"           .s:fg_violet .s:bg_none   .s:fmt_bold
+" exe "hi! pandocReferenceURL"             .s:fg_magenta.s:bg_none   .s:fmt_bold
+" exe "hi! pandocCiteKey"                  .s:fg_base01
+" exe "hi! pandocCiteLocator"              .s:fg_base01
+" exe "hi! pandocCiteAnchor"               .s:fg_base01
 
 " Main Styles
 " ---------------------------------------------------------------------
