@@ -698,7 +698,6 @@ exe "hi! Todo"            .s:fmt_ital   .s:fg_magenta .s:bg_base02
 "       *Todo             anything that needs extra attention; mostly the
 "                         keywords TODO FIXME and XXX
 
-"}}}
 " Builtin Highlighting groups (:help highlight-groups) "{{{
 " ---------------------------------------------------------------------
 exe "hi! Normal"                .s:fmt_none   .s:fg_base0   .s:bg_back
@@ -795,17 +794,10 @@ hi link pandocReferenceLabel      Normal
 
 " Critic Markdown Plugin
 " ---------------------------------------------------------------------
-if exists("g:Sumach_CriticHC") && g:Sumach_CriticHC > 0
-  exe "hi! criticAdd"         .s:fg_green  .s:bg_base03 .s:fmt_revr
-  exe "hi! criticDel"         .s:fg_red    .s:bg_base03 .s:fmt_revr
-  exe "hi! criticMeta"        .s:fg_cyan   .s:bg_base03 .s:fmt_revr
-  exe "hi! criticHighlighter" .s:fg_yellow .s:bg_base03 .s:fmt_revr
-else
-  exe "hi! criticAdd"         .s:fg_green  .s:bg_base02 .s:fmt_ital
-  exe "hi! criticDel"         .s:fg_red    .s:bg_base02 .s:fmt_ital
-  exe "hi! criticMeta"        .s:fg_cyan   .s:bg_base02 .s:fmt_ital
-  exe "hi! criticHighlighter" .s:fg_yellow .s:bg_base02 .s:fmt_ital
-endif
+exe "hi! criticAdd"                      .s:fg_base03 .s:bg_green
+exe "hi! criticDel"                      .s:fg_base03 .s:bg_red
+exe "hi! criticMeta"                     .s:fg_base03 .s:bg_cyan
+exe "hi! criticHighlighter"              .s:fg_base03 .s:bg_yellow
 
 "}}}
 " Other plugins "{{{
