@@ -794,10 +794,17 @@ hi link pandocReferenceLabel      Normal
 
 " Critic Markdown Plugin
 " ---------------------------------------------------------------------
-exe "hi! criticAdd"                      .s:fg_base03 .s:bg_green
-exe "hi! criticDel"                      .s:fg_base03 .s:bg_red
-exe "hi! criticMeta"                     .s:fg_base03 .s:bg_cyan
-exe "hi! criticHighlighter"              .s:fg_base03 .s:bg_yellow
+if exists("g:CriticHC") && g:CriticHC == 1
+  exe "hi! criticAdd"                      .s:fg_base03 .s:bg_green
+  exe "hi! criticDel"                      .s:fg_base03 .s:bg_red
+  exe "hi! criticMeta"                     .s:fg_base03 .s:bg_cyan
+  exe "hi! criticHighlighter"              .s:fg_base03 .s:bg_yellow
+else
+  exe "hi! criticAdd"                      .s:fg_green  .s:bg_base03
+  exe "hi! criticDel"                      .s:fg_red    .s:bg_base03
+  exe "hi! criticMeta"                     .s:fg_cyan   .s:bg_base03
+  exe "hi! criticHighlighter"              .s:fg_yellow .s:bg_base03
+endif
 
 "}}}
 " Other plugins "{{{
