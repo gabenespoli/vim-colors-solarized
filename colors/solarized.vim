@@ -791,6 +791,8 @@ hi link pandocPCite               Identifier
 hi link pandocICite               Identifier
 
 hi link pandocReferenceLabel      Normal
+exe "hi! pandocReferenceURL"      .s:fmt_ital   .s:fg_cyan    .s:bg_none
+exe "hi! pandocNoFormatted"       .s:fmt_ital   .s:fg_blue    .s:bg_none
 
 " Critic Markdown Plugin
 " ---------------------------------------------------------------------
