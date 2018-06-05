@@ -797,12 +797,12 @@ hi link pandocReferenceLabel      Normal
 if exists("g:CriticHC") && g:CriticHC == 1
   exe "hi! criticAdd"                      .s:fg_base03 .s:bg_green
   exe "hi! criticDel"                      .s:fg_base03 .s:bg_red
-  exe "hi! criticMeta"                     .s:fg_base03 .s:bg_cyan
+  exe "hi! criticMeta"                     .s:fg_base03 .s:bg_magenta
   exe "hi! criticHighlighter"              .s:fg_base03 .s:bg_yellow
 else
   exe "hi! criticAdd"                      .s:fg_green  .s:bg_base03
   exe "hi! criticDel"                      .s:fg_red    .s:bg_base03
-  exe "hi! criticMeta"                     .s:fg_cyan   .s:bg_base03
+  exe "hi! criticMeta"                     .s:fg_magenta.s:bg_base03
   exe "hi! criticHighlighter"              .s:fg_yellow .s:bg_base03
 endif
 
