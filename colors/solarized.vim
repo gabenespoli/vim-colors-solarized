@@ -771,30 +771,36 @@ exe "hi! GitGutterDelete"       .s:fmt_none   .s:fg_red     .s:bg_back
 exe "hi! GitGutterChangeDelete" .s:fmt_none   .s:fg_orange  .s:bg_back  
 
 "}}}
-" pandoc & markdown "{{{
+" markdown, pandoc, critic markup "{{{
 " ---------------------------------------------------------------------
 hi! link pandocAtxStart           Title
-hi! link markdownHeadingDelimiter Title
-
 exe "hi! pandocEmphasis"          .s:fg_base1  .s:bg_none  .s:fmt_ital
 exe "hi! pandocStrong"            .s:fg_base1  .s:bg_none  .s:fmt_bold
 exe "hi! pandocStrongEmphasis"    .s:fg_base1  .s:bg_none  .s:fmt_bldi
-exe "hi! pandocEmphasisInStrong"  .s:fg_base1  .s:bg_none  .s:fmt_bldi
-hi link markdownItalic            pandocEmphasis
-hi link markdownBold              pandocStrong
+hi! link pandocEmphasisInStrong   pandocStrongEmphasis
 
-exe "hi! pandocOperator"          .s:fmt_none   .s:fg_blue    .s:bg_none
-exe "hi! pandocCiteKey"           .s:fmt_ital   .s:fg_blue    .s:bg_none
-hi link pandocCiteAnchor          pandocCiteKey
-hi link pandocCiteLocator         pandocCiteKey
-hi link pandocPCite               Identifier
-hi link pandocICite               Identifier
+hi! link pandocOperator           Comment
+hi! link pandocCiteLocator        Delimiter
+hi! link pandocImageIcon          Delimiter
 
-hi link pandocReferenceLabel      Normal
+exe "hi! pandocReferenceLabel"    .s:fmt_ital   .s:fg_violet  .s:bg_none
 exe "hi! pandocReferenceURL"      .s:fmt_ital   .s:fg_cyan    .s:bg_none
 exe "hi! pandocNoFormatted"       .s:fmt_ital   .s:fg_blue    .s:bg_none
 
-" Critic Markdown Plugin
+exe "hi! pandocCiteKey"           .s:fmt_ital   .s:fg_blue    .s:bg_none
+hi! link pandocCiteAnchor         pandocCiteKey
+hi! link pandocPCite              pandocCiteKey
+hi! link pandocICite              pandocCiteKey
+
+hi! link markdownHeadingDelimiter   Title
+hi! link markdownItalic             pandocEmphasis
+hi! link markdownBold               pandocStrong
+hi! link markdownLinkDelimiter      pandocOperator
+hi! link markdownLinkTextDelimiter  pandocOperator
+hi! link markdownLinkText           pandocReferenceLabel
+hi! link markdownUrl                pandocReferenceURL
+
+" Critic Markup Plugin
 " ---------------------------------------------------------------------
 if exists("g:CriticHC") && g:CriticHC == 1
   exe "hi! criticAdd"                      .s:fg_base03 .s:bg_green
